@@ -4,6 +4,10 @@ body {
   font-family: "Reenie Beanie", cursive;
   text-align: center;
 }
+#game-container {
+  margin: 0 auto;
+  text-align: center;
+}
 h1 {
   display: none;
   color: white;
@@ -34,7 +38,7 @@ h1 {
 }
 #abecedario {
   margin: 1rem auto;
-  width: 24rem;
+  width: 40rem;
   text-align: center;
 }
 .letras-abecedario {
@@ -48,6 +52,9 @@ h1 {
   padding: 0.3rem;
   cursor: pointer;
 }
+#modo-de-juego-container {
+  margin: 0 auto;
+}
 .modo-de-juego {
   font-family: "Reenie Beanie", cursive;
   font-size: 2rem;
@@ -57,6 +64,10 @@ h1 {
   display: none;
   font-family: "Reenie Beanie", cursive;
   font-size: 1.5rem;
+}
+.imagen-ahorcado {
+  display: none;
+  width: 12rem;
 }
 #button-comparar {
   margin-top: 0.3rem;
@@ -71,16 +82,22 @@ h1 {
     font-size: 2rem;
   }
   .letras-input {
-    width: 0.9rem;
-    height: 0.9rem;
-    font-size: 2rem;
-    margin: 0.3;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+    margin: 0.2;
+  }
+  .imagen-ahorcado {
+    width: 8rem;
+  }
+  #abecedario {
+    width: 23rem;
   }
   .letras-abecedario {
     margin: 0.3rem;
-    font-size: 2rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    font-size: 1.8rem;
+    width: 2.3rem;
+    height: 2.3rem;
   }
   .modo-de-juego {
     font-size: 1.6rem;
@@ -91,5 +108,12 @@ h1 {
   }
   #button-comparar {
     font-size: 1.3rem;
+  }
+  #game-container {
+    margin: 0 auto;
+    text-align: center;
+  }
+  body {
+    text-align: center;
   }
 }
