@@ -25,6 +25,11 @@ const medium = document.getElementById("medium");
 const hard = document.getElementById("hard");
 const extreme = document.getElementById("extreme");
 const modoSeleccionadoVar = document.querySelector("#modo-seleccionado");
+const aleatorio = document.getElementById("aleatorio");
+
+// variables container
+const modoDeJuegoContainer = document.getElementById("modo-de-juego-container");
+const palabraContainer = document.getElementById("palabra-container");
 
 // variables contadores
 var contador = 0;
@@ -81,6 +86,82 @@ extreme.addEventListener("click", function () {
   imagenAhorcado9.style.display = "none";
   imagenAhorcado8.style.display = "inline";
 });
+aleatorio.addEventListener("click", function () {
+  modoSeleccionadoVar.id = this.id;
+   // imprime una palabra aleatoria, como "pájaro"
+  const palabraRandom = generateRandomWord();
+  palabra.value = palabraRandom;
+  attempts = 10;
+  palabra.style.display = "inline";
+  buttonPalabra.style.display = "inline-block";
+  // Muestra los intentos iniciales
+  easy.style.display = "none";
+  medium.style.display = "none";
+  hard.style.display = "none";
+  extreme.style.display = "none";
+  aleatorio.style.display = "none";
+  palabra.style.display = "none";
+  buttonPalabra.style.display = "none";
+  attemptsRemaining.style.display = "block";
+  buttonComparar.style.display = "inline-block";
+  attemptsRemaining.innerHTML = `Intentos restantes: ${attempts}`;
+  imagenAhorcado10.style.display = "inline";
+
+  letrasContainer.innerHTML = "";
+  var letras = palabra.value.split("");
+  // Bucle para crear los input para comparar
+  for (var i = 0; i < letras.length; i++) {
+    const inputComparar = document.createElement("input");
+    inputComparar.className = "comparar-input";
+    inputComparar.maxLength = "1";
+    inputComparar.value = letras[i].toUpperCase();
+    letrasContainer.appendChild(inputComparar);
+    inputComparar.addEventListener("keyup", function () {
+      inputComparar.value = inputComparar.value.toUpperCase();
+    });
+    const letrasComparar = document.getElementsByClassName("comparar-letras");
+    if (palabra.value.indexOf(" ") !== -1) {
+      for (var k = 0; k < letrasComparar.length; k++) {
+        if (letrasComparar[k].value === " ") {
+          letrasComparar[k].style.visibility = "hidden";
+        }
+      }
+    }
+  }
+  // Bucle para crear los input para escribir
+  for (var j = 0; j < letras.length; j++) {
+    const inputEscribir = document.createElement("input");
+    inputEscribir.className = "letras-input";
+    inputEscribir.maxLength = "1";
+    inputEscribir.value = letras[j].toUpperCase();
+    letrasContainer.appendChild(inputEscribir);
+    inputEscribir.addEventListener("keyup", function () {
+      inputEscribir.value = inputEscribir.value.toUpperCase();
+    });
+    const letrasInput = document.getElementsByClassName("letras-input");
+    if (palabra.value.indexOf(" ") !== -1) {
+      for (var k = 0; k < letrasInput.length; k++) {
+        if (letrasInput[k].value === " ") {
+          letrasInput[k].style.visibility = "hidden";
+        }
+      }
+    }
+    inputEscribir.value = "";
+  }
+  presionarLetra();
+  clickLetrasBotones();
+})
+function generateRandomWord() {
+  // Una lista de palabras que se pueden elegir
+  const words = ['sueño', 'mariposa', 'destello', 'sol', 'tigre', 'caracol', 'poema', 'mar', 'enredado', 'ciervo', 'grano', 'elefante', 'tren', 'reloj', 'verde', 'tijera', 'piedra', 'cintura', 'cabeza', 'vientre', 'dedo', 'pájaro', 'ojo', 'oído', 'nariz', 'boca', 'mano', 'pie', 'rodilla', 'espalda', 'pecho', 'muslo', 'pierna', 'tobillo', 'talón', 'dedo del pie', 'dedo del pie', 'pulgar', 'índice', 'medio', 'anular', 'meñique', 'cadera', 'cuello', 'mentón', 'frente', 'oreja', 'ceja', 'labio', 'diente', 'lengua', 'barbilla', 'hueso', 'músculo', 'grasa', 'piel', 'cabello', 'uña', 'sangre', 'hueso', 'médula', 'nervio', 'cerebro', 'corazón', 'riñón', 'hígado', 'pulmón', 'estómago', 'intestino', 'luna', 'aguja', 'vela', 'pétalo', 'huevo', 'planta', 'flor', 'árbol', 'gato', 'perro', 'león', 'mono', 'conejo', 'zorro', 'búho', 'lluvia', 'nube', 'arcoiris', 'brillar', 'sutil', 'acordeón', 'travesía', 'alboroto', 'globo', 'destello', 'sol', 'tigre', 'caracol', 'poema', 'mar', 'enredado', 'ciervo', 'grano', 'elefante', 'tren', 'reloj', 'verde', 'tijera', 'piedra', 'cintura', 'cabeza', 'vientre', 'dedo', 'pájaro', 'ojo', 'oído', 'nariz', 'boca', 'mano', 'pie', 'rodilla', 'espalda', 'pecho', 'muslo', 'pierna', 'tobillo', 'talón', 'dedo del pie', 'dedo del pie', 'pulgar', 'índice', 'medio', 'anular', 'meñique', 'cadera', 'cuello', 'mentón', 'frente', 'oreja', 'ceja', 'labio', 'diente', 'lengua', 'barbilla', 'hueso', 'músculo', 'grasa', 'piel', 'cabello', 'uña', 'sangre', 'hueso', 'médula', 'nervio', 'cerebro', 'corazón', 'riñón', 'hígado', 'pulmón', 'estómago', 'intestino', 'luna','Abismo','Alfombra','Andamio','Anillo','Anzuelo','Aparador','Arco','Árbol de navidad','Arcoiris','Asiento','Atardecer','Aurora','Baúl','Bolsa','Bolsillo','Bonete','Bolsa','Broche','Brújula','Bufanda','Bolsa','Caja','Caja de música','Caja fuerte','Cajón','Cama','Cámara','Cangrejo','Capa','Caramelo','Caramelo','Carpintería','Casa','Cepillo','Chaleco','Champú','Cinta','Cinturón','Cisne','Clavo','Colgador','Concha','Cuchillo'];
+
+  // Obtén un número aleatorio entre 0 y la longitud de la lista de palabras
+  const randomIndex = Math.floor(Math.random() * words.length);
+
+  // Devuelve la palabra aleatoria
+  return words[randomIndex];
+}
+
 
 // Funcion modo seleccionado
 function modoSeleccionado() {
@@ -91,6 +172,7 @@ function modoSeleccionado() {
     medium.style.display = "none";
     hard.style.display = "none";
     extreme.style.display = "none";
+    aleatorio.style.display = "none";
     palabra.style.display = "none";
     buttonPalabra.style.display = "none";
     attemptsRemaining.style.display = "block";
@@ -264,16 +346,25 @@ function comprobarLetras() {
     setTimeout(() => {
       alert(`GANASTE, la palabra o frase correcta era: ${palabra.value}`);
       window.location.reload();
-    }, 1500);
+    }, 1000);
   } else {
     // Si el contador es menor al número total de letras o la palabra no coincide, mostramos el mensaje "Es incorrecto"
     if (comprobaciones >= 1) {
-      imagenAhorcado2.style.display = "none";
+    imagenAhorcado2.style.display = "none";
+    imagenAhorcado3.style.display = "none";
+    imagenAhorcado4.style.display = "none";
+    imagenAhorcado5.style.display = "none";
+    imagenAhorcado6.style.display = "none";
+    imagenAhorcado7.style.display = "none";
+    imagenAhorcado8.style.display = "none";
+    imagenAhorcado9.style.display = "none";
+    imagenAhorcado10.style.display = "none";
+    imagenAhorcado11.style.display = "none";
       imagenAhorcado1.style.display = "inline";
       setTimeout(() => {
         alert(`PERDISTE, la palabra o frase correcta era: ${palabra.value}`);
         window.location.reload();
-      }, 1500);
+      }, 1000);
     }
   }
 }
@@ -412,9 +503,60 @@ function mostrarImagen() {
       // Muestra la imagen del ahorcado
       imagenAhorcado2.style.display = "inline";
     }
+  } else if (modoSeleccionadoVar.id == "aleatorio") {
+    if (contadorClicks == 1) {
+      // Muestra la imagen del ahorcado
+      imagenAhorcado11.style.display = "none";
+      // Muestra la imagen del ahorcado
+      imagenAhorcado10.style.display = "inline";
+    } else if (contadorClicks == 2) {
+      // Muestra la imagen del ahorcado
+      imagenAhorcado11.style.display = "none";
+      // Muestra la imagen del ahorcado
+      imagenAhorcado10.style.display = "inline";
+    } else if (contadorClicks == 3) {
+      // Muestra la imagen del ahorcado
+      imagenAhorcado10.style.display = "none";
+      // Muestra la imagen del ahorcado
+      imagenAhorcado9.style.display = "inline";
+    } else if (contadorClicks == 4) {
+      // Muestra la imagen del ahorcado
+      imagenAhorcado9.style.display = "none";
+      // Muestra la imagen del ahorcado
+      imagenAhorcado8.style.display = "inline";
+    } else if (contadorClicks == 5) {
+      // Muestra la imagen del ahorcado
+      imagenAhorcado8.style.display = "none";
+      // Muestra la imagen del ahorcado
+      imagenAhorcado7.style.display = "inline";
+    } else if (contadorClicks == 6) {
+      // Muestra la imagen del ahorcado
+      imagenAhorcado7.style.display = "none";
+      // Muestra la imagen del ahorcado
+      imagenAhorcado6.style.display = "inline";
+    } else if (contadorClicks == 7) {
+      // Muestra la imagen del ahorcado
+      imagenAhorcado6.style.display = "none";
+      // Muestra la imagen del ahorcado
+      imagenAhorcado5.style.display = "inline";
+    } else if (contadorClicks == 8) {
+      // Muestra la imagen del ahorcado
+      imagenAhorcado5.style.display = "none";
+      // Muestra la imagen del ahorcado
+      imagenAhorcado4.style.display = "inline";
+    } else if (contadorClicks == 9) {
+      // Muestra la imagen del ahorcado
+      imagenAhorcado4.style.display = "none";
+      // Muestra la imagen del ahorcado
+      imagenAhorcado3.style.display = "inline";
+    } else if (contadorClicks == 10) {
+      // Muestra la imagen del ahorcado
+      imagenAhorcado3.style.display = "none";
+      // Muestra la imagen del ahorcado
+      imagenAhorcado2.style.display = "inline";
+    }
   }
 }
-
 // boton para verificar si es correcto o no
 buttonComparar.addEventListener("click", function () {
   comprobaciones++;
