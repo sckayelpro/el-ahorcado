@@ -19,33 +19,38 @@ var comprobaciones = 0;
 
 const attemptsRemaining = document.querySelector("#attempts-remaining");
 
-// Muestra los intentos iniciales
-attemptsRemaining.innerHTML = `Intentos restantes: ${attempts}`;
-
 // Evento click de los botones
 easy.addEventListener("click", function () {
   attempts = 10;
   modoSeleccionado();
   palabra.style.display = "inline";
   buttonPalabra.style.display = "inline-block";
+  // Muestra los intentos iniciales
+  attemptsRemaining.innerHTML = `Intentos restantes: ${attempts}`;
 });
 medium.addEventListener("click", function () {
   attempts = 7;
   modoSeleccionado();
   palabra.style.display = "inline";
   buttonPalabra.style.display = "inline-block";
+  // Muestra los intentos iniciales
+  attemptsRemaining.innerHTML = `Intentos restantes: ${attempts}`;
 });
 hard.addEventListener("click", function () {
   attempts = 5;
   modoSeleccionado();
   palabra.style.display = "inline";
   buttonPalabra.style.display = "inline-block";
+  // Muestra los intentos iniciales
+  attemptsRemaining.innerHTML = `Intentos restantes: ${attempts}`;
 });
 extrem.addEventListener("click", function () {
   attempts = 3;
   modoSeleccionado();
   palabra.style.display = "inline";
   buttonPalabra.style.display = "inline-block";
+  // Muestra los intentos iniciales
+  attemptsRemaining.innerHTML = `Intentos restantes: ${attempts}`;
 });
 
 // Funcion modo seleccionado
