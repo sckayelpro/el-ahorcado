@@ -5,7 +5,6 @@ const buttonPalabra = document.getElementById("button-palabra");
 const buttonComparar = document.getElementById("button-comparar");
 const letrasInputEscritas = document.getElementsByClassName("letras-input");
 const letrasInputComparar = document.getElementsByClassName("comparar-input");
-const attemptsRemaining = document.querySelector("#attempts-remaining");
 // variables que contienen a los botones de modo de juego
 const easy = document.querySelector("#easy");
 const medium = document.querySelector("#medium");
@@ -17,6 +16,9 @@ var contador = 0;
 var contadorClicks = 0;
 var attempts = 0;
 var comprobaciones = 0;
+
+const attemptsRemaining = document.querySelector("#attempts-remaining");
+
 // Muestra los intentos iniciales
 attemptsRemaining.innerHTML = `Intentos restantes: ${attempts}`;
 
