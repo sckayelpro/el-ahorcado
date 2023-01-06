@@ -1,7 +1,7 @@
 body {
   margin: 0;
   background: rgb(14, 41, 39);
-  font-family: "Reenie Beanie", cursive;
+  font-family: 'Martian Mono', monospace;
   text-align: center;
 }
 #game-container {
@@ -17,7 +17,7 @@ h1 {
   text-align: center;
   width: 30rem;
   height: 2rem;
-  font-family: "Reenie Beanie", cursive;
+  font-family: 'Martian Mono', monospace;
   font-size: 2rem;
   margin: 1rem;
 }
@@ -30,8 +30,8 @@ h1 {
   margin: 0.5rem;
   border: 0;
   border-bottom: 2px solid white;
-  font-family: "Reenie Beanie", cursive;
-  font-size: 3rem;
+  font-family: 'Martian Mono', monospace;
+  font-size: 2.2rem;
 }
 .comparar-input {
   display: none;
@@ -43,10 +43,10 @@ h1 {
 }
 .letras-abecedario {
   margin: 0.3rem;
-  font-family: "Reenie Beanie", cursive;
+  font-family: 'Martian Mono', monospace;
   color: black;
   background: white;
-  font-size: 2rem;
+  font-size: 1.8rem;
   width: 3rem;
   height: 3rem;
   padding: 0.3rem;
@@ -56,13 +56,13 @@ h1 {
   margin: 0 auto;
 }
 .modo-de-juego {
-  font-family: "Reenie Beanie", cursive;
-  font-size: 2rem;
+  font-family: 'Martian Mono', monospace;
+  font-size: 1.8rem;
   margin: 2rem;
 }
 #button-palabra {
   display: none;
-  font-family: "Reenie Beanie", cursive;
+  font-family: 'Martian Mono', monospace;
   font-size: 1.5rem;
 }
 .imagen-ahorcado {
@@ -71,7 +71,7 @@ h1 {
 }
 #button-comparar {
   margin-top: 0.3rem;
-  font-family: "Reenie Beanie", cursive;
+  font-family: 'Martian Mono', monospace;
   font-size: 1.5rem;
   display: none;
 }
@@ -79,7 +79,10 @@ h1 {
   #palabra {
     width: 20rem;
     height: 2rem;
-    font-size: 2rem;
+    font-size: 1.7rem;
+  }
+  #attempts-remaining {
+    font-size: 1rem;
   }
   .letras-input {
     width: 1.5rem;
@@ -95,12 +98,12 @@ h1 {
   }
   .letras-abecedario {
     margin: 0.3rem;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     width: 2.3rem;
     height: 2.3rem;
   }
   .modo-de-juego {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin: 1rem 0.1rem;
   }
   #button-palabra {
