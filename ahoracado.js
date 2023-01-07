@@ -39,6 +39,7 @@ var comprobaciones = 0;
 
 // Evento click de los botones
 easy.addEventListener("click", function () {
+  palabra.value=""
   modoSeleccionadoVar.id = this.id;
   attempts = 10;
   modoSeleccionado();
@@ -46,11 +47,13 @@ easy.addEventListener("click", function () {
   buttonPalabra.style.display = "inline-block";
   // Muestra los intentos iniciales
   attemptsRemaining.innerHTML = `Intentos restantes: ${attempts}`;
+  imagenAhorcado10.style.display = "none";
   imagenAhorcado9.style.display = "none";
   imagenAhorcado8.style.display = "none";
   imagenAhorcado11.style.display = "inline";
 });
 medium.addEventListener("click", function () {
+  palabra.value=""
   modoSeleccionadoVar.id = this.id;
   attempts = 7;
   modoSeleccionado();
@@ -59,10 +62,12 @@ medium.addEventListener("click", function () {
   // Muestra los intentos iniciales
   attemptsRemaining.innerHTML = `Intentos restantes: ${attempts}`;
   imagenAhorcado11.style.display = "none";
+  imagenAhorcado10.style.display = "none";
   imagenAhorcado8.style.display = "none";
   imagenAhorcado9.style.display = "inline";
 });
 hard.addEventListener("click", function () {
+  palabra.value=""
   modoSeleccionadoVar.id = this.id;
   attempts = 5;
   modoSeleccionado();
@@ -71,10 +76,12 @@ hard.addEventListener("click", function () {
   // Muestra los intentos iniciales
   attemptsRemaining.innerHTML = `Intentos restantes: ${attempts}`;
   imagenAhorcado11.style.display = "none";
+  imagenAhorcado10.style.display = "none";
   imagenAhorcado9.style.display = "none";
   imagenAhorcado8.style.display = "inline";
 });
 extreme.addEventListener("click", function () {
+  palabra.value=""
   modoSeleccionadoVar.id = this.id;
   attempts = 3;
   modoSeleccionado();
@@ -83,6 +90,7 @@ extreme.addEventListener("click", function () {
   // Muestra los intentos iniciales
   attemptsRemaining.innerHTML = `Intentos restantes: ${attempts}`;
   imagenAhorcado11.style.display = "none";
+  imagenAhorcado10.style.display = "none";
   imagenAhorcado9.style.display = "none";
   imagenAhorcado8.style.display = "inline";
 });
@@ -95,17 +103,15 @@ aleatorio.addEventListener("click", function () {
   palabra.style.display = "inline";
   buttonPalabra.style.display = "inline-block";
   // Muestra los intentos iniciales
-  easy.style.display = "none";
-  medium.style.display = "none";
-  hard.style.display = "none";
-  extreme.style.display = "none";
-  aleatorio.style.display = "none";
   palabra.style.display = "none";
   buttonPalabra.style.display = "none";
   attemptsRemaining.style.display = "block";
   buttonComparar.style.display = "inline-block";
   attemptsRemaining.innerHTML = `Intentos restantes: ${attempts}`;
   imagenAhorcado10.style.display = "inline";
+  imagenAhorcado11.style.display = "none";
+  imagenAhorcado9.style.display = "none";
+  imagenAhorcado8.style.display = "none";
 
   letrasContainer.innerHTML = "";
   var letras = palabra.value.split("");
